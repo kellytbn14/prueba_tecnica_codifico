@@ -1,0 +1,126 @@
+<p-card>
+  <form [formGroup]="orderForm" (ngSubmit)="createOrderWithDetails()">
+    <h3>Order</h3>
+    <div class="flex gap-5 mt-1">
+      <div class="flex-1">
+        <p-dropdown appendTo="body" [options]="employees" [(ngModel)]="employeeSelected" [checkmark]="true"
+                    optionLabel="fullName" [showClear]="true" class="w-full" styleClass="w-full"
+                    placeholder="Employee *" formControlName="employeeSelected"/>
+      </div>
+
+      <div class="flex-1">
+        <p-dropdown appendTo="body" [options]="shippers" [(ngModel)]="shipperSelected" [checkmark]="true"
+                    optionLabel="companyName" [showClear]="true" class="w-full" styleClass="w-full"
+                    placeholder="Shipper *" formControlName="shipperSelected"/>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <p-floatLabel>
+        <input pInputText id="shipName" formControlName="shipName"
+               class="w-full" styleClass="w-full"/>
+        <label for="shipName">Ship name *</label>
+      </p-floatLabel>
+    </div>
+
+    <div class="flex gap-5 mt-5">
+      <div class="flex-1">
+        <p-floatLabel>
+          <input pInputText id="shipAddress" class="w-full"
+                 styleClass="w-full" formControlName="shipAddress"/>
+          <label for="shipAddress">Ship address *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-1">
+        <p-floatLabel>
+          <input pInputText id="shipCity" class="w-full" styleClass="w-full"
+                 formControlName="shipCity"/>
+          <label for="shipCity">Ship city *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-1">
+        <p-floatLabel>
+          <input pInputText id="shipCountry" class="w-full"
+                 styleClass="w-full" formControlName="shipCountry"/>
+          <label for="shipCountry">Ship country *</label>
+        </p-floatLabel>
+      </div>
+    </div>
+
+    <div class="flex gap-5 mt-5">
+      <div class="flex-1">
+        <p-floatLabel>
+          <p-calendar [iconDisplay]="'input'" [showIcon]="true"
+                      inputId="orderDate" appendTo="body" formControlName="orderDate"/>
+          <label>Order Date *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-1">
+        <p-floatLabel>
+          <p-calendar [iconDisplay]="'input'" [showIcon]="true"
+                      inputId="requiredDate" formControlName="requiredDate" appendTo="body"/>
+          <label>Required Date *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-1">
+        <p-floatLabel>
+          <p-calendar [iconDisplay]="'input'" [showIcon]="true"
+                      inputId="shippedDate" formControlName="shippedDate" appendTo="body"/>
+          <label>Shipped Date *</label>
+        </p-floatLabel>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <p-floatLabel>
+        <p-inputNumber inputId="currency-us" mode="currency" currency="USD"
+                       locale="en-US" formControlName="freight" class="w-full" styleClass="w-full"/>
+        <label for="shipName">Freight *</label>
+      </p-floatLabel>
+    </div>
+
+    <h3>Order details</h3>
+
+    <div class="flex gap-5 mt-1">
+      <div class="flex-1">
+        <p-dropdown appendTo="body" [options]="products" [(ngModel)]="productSelected" [checkmark]="true"
+                    optionLabel="productName" [showClear]="true" class="w-full" styleClass="w-full"
+                    placeholder="Product *" formControlName="productSelected"/>
+      </div>
+    </div>
+
+    <div class="flex gap-5 p-fluid mt-5">
+      <div class="flex-auto">
+        <p-floatLabel>
+          <p-inputNumber mode="currency" currency="USD" locale="en-US"
+                         formControlName="unitPrice"/>
+          <label for="">Unit price *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-auto">
+        <p-floatLabel>
+          <p-inputNumber formControlName="quantity"/>
+          <label>Quantity *</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex-auto">
+        <p-floatLabel>
+          <p-inputNumber  mode="decimal"
+                          [min]="0" [minFractionDigits]="2"
+                          [maxFractionDigits]="5"
+                          [max]="1" formControlName="discount"/>
+          <label>Discount *</label>
+        </p-floatLabel>
+      </div>
+    </div>
+    <div class="flex justify-content-end mt-5">
+      <p-button label="SAVE" [link]="true" [style]="{'color': 'green'}" type="submit"/>
+    </div>
+  </form>
+</p-card>

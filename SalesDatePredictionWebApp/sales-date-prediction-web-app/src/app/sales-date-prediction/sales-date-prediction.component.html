@@ -1,0 +1,66 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <div class="header-container">
+      <h1 class="header-title">Customers</h1>
+      <div class="search-container">
+        <p-iconField iconPosition="right">
+          <p-inputIcon styleClass="pi pi-search"></p-inputIcon>
+          <input type="text" pInputText placeholder="Customer name" (keyup)="applyFilter($event)"/>
+        </p-iconField>
+      </div>
+    </div>
+  </ng-template>
+
+  <p-table [value]="customers" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="pageable.size"
+           [loading]="loading" [rowsPerPageOptions]="[5, 10, 20]" [totalRecords]="totalElements" [columns]="cols"
+           [lazy]="true" (onLazyLoad)="loadRecordsLazy($event)">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" [width]="col.width">
+          {{col.header}}
+          <p-sortIcon *ngIf="col.sort" [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.customerName }}</td>
+        <td>{{ rowData.lastOrderDate }}</td>
+        <td>{{ rowData.nextPredictedOrder }}</td>
+        <td>
+          <p-button label="VIEW ORDERS" [link]="true" (click)="showDialogCustomerOrdersVisible(rowData)"
+                    [style]="{'color': 'red'}"/>
+          <p-button label="NEW ORDER" [link]="true" (click)="showDialogCustomerNewOrderVisible(rowData)" [style]="{'color': 'green'}"/>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<p-dialog
+  [modal]="true"  header="{{customerSelected.customerName}} - Orders"
+  [(visible)]="dialogCustomerOrdersVisible"
+  [style]="{ width: '80rem' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [maximizable]="false">
+
+  <ng-container *ngIf="customerSelected.customerId">
+    <app-customer-orders [customerId]="customerSelected.customerId"></app-customer-orders>
+  </ng-container>
+
+</p-dialog>
+
+<p-dialog
+  [modal]="true"  header="{{customerSelected.customerName}} - New Order"
+  [(visible)]="dialogCustomerNewOrderVisible"
+  [style]="{ width: '40rem', height: '80%' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [maximizable]="false">
+
+  <ng-container *ngIf="customerSelected.customerId">
+    <app-create-order [customerId]="customerSelected.customerId" (orderCreated)="closeDialog()"></app-create-order>
+  </ng-container>
+
+</p-dialog>
+
