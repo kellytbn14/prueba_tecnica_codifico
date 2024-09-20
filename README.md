@@ -4,10 +4,10 @@
 Aplicación web para crear órdenes y predecir cuándo ocurrirá la próxima orden por cliente de acuerdo con los registros almacenados en la base de datos.
 
 ### Diagrama de arquitectura
-<!-- ![alt text](assets/diagram.png) -->
+![alt text](assets/diagram.png)
 
 ### Modelo ER
-<!-- ![alt text](assets/model.png) -->
+![alt text](assets/model.png)
 
 ## Base de datos
 La aplicación requiere construir sentencias DML que serán usadas por el componente de Web API.
