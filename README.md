@@ -90,7 +90,7 @@ Diseñada con arquitectura hexagonal y documentada utilizando Swagger, lo que fa
 - .NET 8 version
 - Sql Server
 
-> Configure la cadena de conexión de Azure SQL DB en el archivo appsettings.json. Reemplace <server> por el nombre del servidor de base de datos.
+> Configure la cadena de conexión de Sql Server en el archivo appsettings.json. Reemplace <server> por el nombre del servidor de base de datos.
 
 ```json
 "ConnectionStrings": {
@@ -120,7 +120,7 @@ Este proyecto incluye pruebas unitarias con XUnit.
 
 Para ejecutar las pruebas unitarias, siga los pasos que se indican a continuación:
 
-1. Asegúrese de tener el SDK de .NET y Docker instalados en su equipo.
+1. Asegúrese de tener el SDK de .NET instalado en su equipo.
 2. Desde la raíz del proyecto, ejecute el siguiente comando para compilar el proyecto y las pruebas:
 
 ```bash
