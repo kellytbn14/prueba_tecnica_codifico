@@ -1,7 +1,5 @@
 # Prueba Técnica Desarrollador - CODIFICO
 
-# Prueba Técnica Desarrollador - CODIFICO
-
 ## Tabla de Contenido
 
 1. [Sales date prediction App](#sales-date-prediction-app)
