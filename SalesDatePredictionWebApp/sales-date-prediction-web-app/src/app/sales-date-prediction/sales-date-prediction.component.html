@@ -31,7 +31,8 @@
         <td>
           <p-button label="VIEW ORDERS" [link]="true" (click)="showDialogCustomerOrdersVisible(rowData)"
                     [style]="{'color': 'red'}"/>
-          <p-button label="NEW ORDER" [link]="true" (click)="showDialogCustomerNewOrderVisible(rowData)" [style]="{'color': 'green'}"/>
+          <p-button label="NEW ORDER" [link]="true" (click)="showDialogCustomerNewOrderVisible(rowData)"
+                    [style]="{'color': 'green'}"/>
         </td>
       </tr>
     </ng-template>
@@ -39,7 +40,7 @@
 </p-card>
 
 <p-dialog
-  [modal]="true"  header="{{customerSelected.customerName}} - Orders"
+  [modal]="true" header="{{customerSelected.customerName}} - Orders"
   [(visible)]="dialogCustomerOrdersVisible"
   [style]="{ width: '80rem' }"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
@@ -52,7 +53,7 @@
 </p-dialog>
 
 <p-dialog
-  [modal]="true"  header="{{customerSelected.customerName}} - New Order"
+  [modal]="true" header="{{customerSelected.customerName}} - New Order"
   [(visible)]="dialogCustomerNewOrderVisible"
   [style]="{ width: '40rem', height: '80%' }"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"

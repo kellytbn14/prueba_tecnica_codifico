@@ -2,7 +2,7 @@
 
   <p-table [value]="orders" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="pageable.size"
            [loading]="loading" [rowsPerPageOptions]="[5, 10, 20]" [totalRecords]="totalElements" [columns]="cols"
-           [lazy]="true" (onLazyLoad)="loadRecordsLazy($event)">
+           [lazy]="false" (onLazyLoad)="loadRecordsLazy($event)">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns"  [width]="col.width">

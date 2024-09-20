@@ -1,5 +1,17 @@
 # Prueba Técnica Desarrollador - CODIFICO
 
+# Prueba Técnica Desarrollador - CODIFICO
+
+## Tabla de Contenido
+
+1. [Sales date prediction App](#sales-date-prediction-app)
+2. [Diagrama de arquitectura](#diagrama-de-arquitectura)
+3. [Modelo ER](#modelo-er)
+4. [Base de datos](#base-de-datos)
+5. [Sales Date Prediction API](#sales-date-prediction-api)
+6. [Sales Date Prediction Web App](#sales-date-prediction-web-app)
+7. [Graficando con D3](#graficando-con-d3)
+
 # Sales date prediction App
 Aplicación web para crear órdenes y predecir cuándo ocurrirá la próxima orden por cliente de acuerdo con los registros almacenados en la base de datos.
 
@@ -85,6 +97,8 @@ Diseñada con arquitectura hexagonal y documentada utilizando Swagger, lo que fa
 
 >[Ir a SalesDatePrediction](SalesDatePrediction/)
 
+![alt text](assets/swagger.png)
+
 ### Requisitos previos
 
 - .NET 8 version
@@ -139,6 +153,9 @@ Aplicación web desarrollada en Angular que permite gestionar y consultar órden
 
 >[Ir a SalesDatePredictionWebApp](SalesDatePredictionWebApp/)
 
+![alt text](assets/customersView.png)
+![alt text](assets/ordersView.png)
+![alt text](assets/createOrderView.png)
 
 ### Requisitos previos
 
@@ -166,4 +183,6 @@ ng serve
 ## Graficando con D3
 Este proyecto es una aplicación frontend simple que permite crear un gráfico de barras horizontales utilizando la librería D3.js. El usuario puede ingresar datos numéricos en un campo de texto, y la aplicación generará un gráfico dinámico en base a esos datos.
 
->[Ir a Graph.sql](Graph/)
+>[Ir a Graph](Graph/)
+
+![alt text](assets/d3Js.png)

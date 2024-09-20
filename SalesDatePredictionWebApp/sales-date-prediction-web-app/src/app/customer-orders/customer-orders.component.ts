@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import {HeaderComponent} from "../common/header/header.component";
 import {MenubarModule} from "primeng/menubar";
 import {NextPredictedOrderDate} from "../core/models/next-predicted-order-date";
@@ -39,6 +39,13 @@ export class CustomerOrdersComponent {
 
   ngOnInit(): void {
     this.buildColumns()
+    this.getCustomerOrders()
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['customerId'] && !isNullOrUndefined(this.customerId)) {
+      this.getCustomerOrders();
+    }
   }
 
   private buildColumns(): void {
@@ -52,7 +59,7 @@ export class CustomerOrdersComponent {
     ]
   }
 
-  getNextPredictedOrderDates(): void {
+  getCustomerOrders(): void {
     this.loading = true
     this.orderService.getCustomerOrders(this.customerId, this.pageable).subscribe(data => {
       if (!isNullOrUndefined(data) || !isNullOrUndefined(data.content)) {
@@ -83,6 +90,6 @@ export class CustomerOrdersComponent {
     const sort = `${sortField} ${sortOrder}`
 
     this.pageable = new Pageable(page, size, sort)
-    this.getNextPredictedOrderDates()
+    this.getCustomerOrders()
   }
 }
